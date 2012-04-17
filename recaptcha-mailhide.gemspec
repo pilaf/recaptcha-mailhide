@@ -20,6 +20,7 @@ Gem::Specification.new do |s|
     ".document",
     ".rspec",
     "Gemfile",
+    "Gemfile.lock",
     "LICENSE.txt",
     "README.rdoc",
     "Rakefile",
@@ -29,7 +30,9 @@ Gem::Specification.new do |s|
     "lib/recaptcha_mailhide/configuration.rb",
     "lib/recaptcha_mailhide/encrypt.rb",
     "lib/recaptcha_mailhide/url.rb",
-    "spec/recaptcha-mailhide_spec.rb",
+    "recaptcha-mailhide.gemspec",
+    "spec/recaptcha_mailhide/encrypt_spec.rb",
+    "spec/recaptcha_mailhide/url_spec.rb",
     "spec/spec_helper.rb"
   ]
   s.homepage = "http://github.com/pilaf/recaptcha-mailhide"
