@@ -17,10 +17,11 @@ Jeweler::Tasks.new do |gem|
   gem.name = "recaptcha-mailhide"
   gem.homepage = "http://github.com/pilaf/recaptcha-mailhide"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{ReCAPTCHA Mailhide for Ruby}
+  gem.description = %Q{Ruby implementation of ReCAPTCHA Mailhide's API}
   gem.email = "pfayolle@gmail.com"
   gem.authors = ["Pedro Fayolle"]
+  gem.files.include Dir.glob("lib/**/*.rb")
   # dependencies defined in Gemfile
 end
 Jeweler::RubygemsDotOrgTasks.new
@@ -38,7 +39,7 @@ end
 
 task :default => :spec
 
-require 'rake/rdoctask'
+require 'rdoc/task'
 Rake::RDocTask.new do |rdoc|
   version = File.exist?('VERSION') ? File.read('VERSION') : ""
 

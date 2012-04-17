@@ -1,6 +1,22 @@
 = recaptcha-mailhide
 
-Description goes here.
+This gem provides support for ReCAPTCHA's Mailhide API.
+
+At the moment it only generates URLs, it doesn't provide any link helpers, so it's completely framework agnostic.
+
+== Installation
+
+Simply run:
+
+    gem install recaptcha-mailhide
+
+Or if you're using bundler:
+
+    gem 'recaptcha-mailhide'
+
+== Usage
+
+
 
 == Contributing to recaptcha-mailhide
  
@@ -16,4 +32,3 @@ Description goes here.
 
 Copyright (c) 2012 Pedro Fayolle. See LICENSE.txt for
 further details.
-
