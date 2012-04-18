@@ -1,8 +1,8 @@
-= recaptcha-mailhide
+= ReCAPTCHA Mailhide
 
 This gem provides support for ReCAPTCHA's Mailhide API.
 
-At the moment it only generates URLs, it doesn't provide any link helpers, so it's completely framework agnostic.
+At the moment it only generates URLs, it doesn't provide any link helpers, so it's completely framework agnostic (and a bit on the lower side of features).
 
 == Installation
 
@@ -14,21 +14,21 @@ Or if you're using bundler:
 
     gem 'recaptcha-mailhide'
 
+== Configuration
+
+Easy:
+
+    RecaptchaMailhide.configure do |c|
+      c.private_key = 'your private key here'
+      c.public_key  = 'your public key here'
+    end
+
 == Usage
 
+Call <tt>RecaptchaMailhide::URL.url_for(email)</tt> to get the ReCAPTCHA Mailhide URL.
 
+At the moment this gem doesn't provide any helpers to build HTML link tags.
 
-== Contributing to recaptcha-mailhide
- 
-* Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
-* Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it
-* Fork the project
-* Start a feature/bugfix branch
-* Commit and push until you are happy with your contribution
-* Make sure to add tests for it. This is important so I don't break it in a future version unintentionally.
-* Please try not to mess with the Rakefile, version, or history. If you want to have your own version, or is otherwise necessary, that is fine, but please isolate to its own commit so I can cherry-pick around it.
+== License
 
-== Copyright
-
-Copyright (c) 2012 Pedro Fayolle. See LICENSE.txt for
-further details.
+MIT License. Copyright (c) 2012 Pedro Fayolle.
