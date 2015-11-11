@@ -1,0 +1,10 @@
+== 1.0.0
+
+* Added Rails view helpers
+* Made generated URLs use HTTPS
+* Removed Jeweler dependency
+* General cleanup
+
+== 0.1.1
+
+* First release

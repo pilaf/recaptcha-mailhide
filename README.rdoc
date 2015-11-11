@@ -1,34 +1,68 @@
 = ReCAPTCHA Mailhide
 
-This gem provides support for ReCAPTCHA's Mailhide API.
-
-At the moment it only generates URLs, it doesn't provide any link helpers, so it's completely framework agnostic (and a bit on the lower side of features).
+This gem provides Ruby (and Rails) support for ReCAPTCHA's Mailhide API.
 
 == Installation
 
-Simply run:
+Add this to your Gemfile:
 
-    gem install recaptcha-mailhide
-
-Or if you're using bundler:
-
-    gem 'recaptcha-mailhide'
+  gem 'recaptcha-mailhide'
 
 == Configuration
 
-Easy:
+Add this somewhere (if you're using Rails put it in
+config/initializers/recaptcha_mailhide.rb):
 
-    RecaptchaMailhide.configure do |c|
-      c.private_key = 'your private key here'
-      c.public_key  = 'your public key here'
-    end
+  RecaptchaMailhide.configure do |c|
+    c.private_key = '...'
+    c.public_key  = '...'
+  end
+
+If you need a set of public/private keys get them from
+https://www.google.com/recaptcha/mailhide/apikey
 
 == Usage
 
-Call <tt>RecaptchaMailhide::URL.url_for(email)</tt> to get the ReCAPTCHA Mailhide URL.
+=== In Rails views
 
-At the moment this gem doesn't provide any helpers to build HTML link tags.
+  recaptcha_mailhide('foo@example.com')
 
-== License
+You can also provide content as a method argument or a block (just like with
+<code>link_to</code>):
 
-MIT License. Copyright (c) 2012 Pedro Fayolle.
+  # Content in argument
+  recaptcha_mailhide('Click to view email', 'foo@example.com')
+  
+  recaptcha_mailhide('foo@example.com') do
+    # Content here
+  end
+
+You can also provide options (they get forwarded to <code>link_to</code>):
+
+    recaptcha_mailhide('foo@example.com', class: 'hidden-email', target: '_blank')
+
+In addition it accepts a <code>:popup</code> option that will make the link
+open in a popup window (requires JavaScript):
+
+  recaptcha_mailhide('foo@example.com', popup: true)
+  
+  # Configuring popup window size
+  recaptcha_mailhide('foo@example.com', popup: { width: 600, height: 600 })
+
+=== Pure Ruby
+
+Use the following to get just the ReCAPTCHA Mailhide URL (without a link tag):
+
+  RecaptchaMailhide.url_for(email)
+
+== TODO
+
+* Tests for Rails helpers
+* Basic helpers (non-dependent on Rails)
+* Rails generator for initializer with auto-fetching of private/public keys
+
+== Copyright
+
+This gem is Copyright (c) 2012 Pedro Fayolle. See LICENSE.txt for further details.
+
+ReCAPTCHA Mailhide is Copyright (c) Google, Inc. This is gem is NOT affiliated with Google, Inc.
