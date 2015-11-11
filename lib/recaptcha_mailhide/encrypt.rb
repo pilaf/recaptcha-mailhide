@@ -14,7 +14,7 @@ module RecaptchaMailhide
       urlsafe_base64(aes.update(pad_string(string)) + aes.final)
     end
 
-  private
+    private
 
     # Converts the given string to Base64 encoding,
     # replacing '+' with '-', '/' with '_' and
