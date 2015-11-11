@@ -1,50 +1,18 @@
-# encoding: utf-8
-
-require 'rubygems'
-require 'bundler'
 begin
-  Bundler.setup(:default, :development)
-rescue Bundler::BundlerError => e
-  $stderr.puts e.message
-  $stderr.puts "Run `bundle install` to install missing gems"
-  exit e.status_code
+  require 'bundler/setup'
+rescue LoadError
+  puts 'You must `gem install bundler` and `bundle install` to run rake tasks'
 end
-require 'rake'
-
-require 'jeweler'
-Jeweler::Tasks.new do |gem|
-  # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
-  gem.name = "recaptcha-mailhide"
-  gem.homepage = "http://github.com/pilaf/recaptcha-mailhide"
-  gem.license = "MIT"
-  gem.summary = %Q{ReCAPTCHA Mailhide for Ruby}
-  gem.description = %Q{Ruby implementation of ReCAPTCHA Mailhide's API}
-  gem.email = "pfayolle@gmail.com"
-  gem.authors = ["Pedro Fayolle"]
-  gem.files.include Dir["lib/**/*.rb"]
-  # dependencies defined in Gemfile
-end
-Jeweler::RubygemsDotOrgTasks.new
-
-require 'rspec/core'
-require 'rspec/core/rake_task'
-RSpec::Core::RakeTask.new(:spec) do |spec|
-  spec.pattern = FileList['spec/**/*_spec.rb']
-end
-
-RSpec::Core::RakeTask.new(:rcov) do |spec|
-  spec.pattern = 'spec/**/*_spec.rb'
-  spec.rcov = true
-end
-
-task :default => :spec
 
 require 'rdoc/task'
-Rake::RDocTask.new do |rdoc|
-  version = File.exist?('VERSION') ? File.read('VERSION') : ""
 
+RDoc::Task.new(:rdoc) do |rdoc|
+  require 'recaptcha_mailhide/version'
   rdoc.rdoc_dir = 'rdoc'
-  rdoc.title = "recaptcha-mailhide #{version}"
-  rdoc.rdoc_files.include('README*')
+  rdoc.title    = "recaptcha-mailhide #{RecaptchaMailhide::VERSION}"
+  rdoc.options << '--line-numbers'
+  rdoc.rdoc_files.include('README.rdoc')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
+
+Bundler::GemHelper.install_tasks
