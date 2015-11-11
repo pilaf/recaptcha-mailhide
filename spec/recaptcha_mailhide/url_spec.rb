@@ -7,7 +7,7 @@ describe RecaptchaMailhide::URL do
 
   describe ".url_for" do
     it("returns the proper URL") do
-      RecaptchaMailhide::URL.url_for('foo@bar.com').should eq('http://www.google.com/recaptcha/mailhide/d?k=PUBLIC_KEY&c=ABC')
+      RecaptchaMailhide::URL.url_for('foo@bar.com').should eq('https://www.google.com/recaptcha/mailhide/d?k=PUBLIC_KEY&c=ABC')
     end
   end
 end
