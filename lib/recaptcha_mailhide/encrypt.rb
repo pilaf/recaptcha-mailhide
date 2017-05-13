@@ -36,7 +36,7 @@ module RecaptchaMailhide
     # Initializes the cipher.
     #
     def self.build_aes
-      aes = OpenSSL::Cipher::Cipher.new("aes-128-cbc")
+      aes = OpenSSL::Cipher.new("aes-128-cbc")
       aes.encrypt
       aes.iv = INITIALIZATION_VECTOR
       aes.padding = 0
