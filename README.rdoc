@@ -2,6 +2,8 @@
 
 This gem provides Ruby (and Rails) support for ReCAPTCHA's Mailhide API.
 
+{<img src="https://travis-ci.org/pilaf/recaptcha-mailhide.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/pilaf/recaptcha-mailhide]
+
 == Installation
 
 Add this to your Gemfile:
