@@ -1,3 +1,7 @@
+== 1.0.2
+
+* Use OpenSSL::Cipher rather than deprecated OpenSSL::Cipher::Cipher (edsimpson)
+
 == 1.0.0
 
 * Added Rails view helpers
